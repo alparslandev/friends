@@ -5,10 +5,7 @@
               android:layout_height="match_parent"
               android:layout_width="match_parent"
               android:gravity="center_horizontal"
-              android:id="@+id/pnl_login_main"
               android:orientation="vertical"
-              android:paddingLeft="@dimen/activity_horizontal_margin"
-              android:paddingRight="@dimen/activity_horizontal_margin"
               android:background="@color/ys_main_color"
               tools:context="com.alp.usermanager.LoginActivity">
 
@@ -21,16 +18,17 @@
             android:visibility="gone"/>
 
     <ScrollView
-            android:id="@+id/login_form"
             android:layout_height="match_parent"
-            android:layout_width="match_parent">
+            android:layout_width="match_parent"
+            android:id="@+id/login_form">
 
         <LinearLayout
-                android:id="@+id/email_login_form"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_marginTop="30dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="30dp"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin">
 
             <TextView android:layout_width="match_parent"
                       android:layout_height="wrap_content"
@@ -44,18 +42,14 @@
                     android:id="@+id/et_mail"
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
-                    android:layout_width="match_parent"
-                    style="@style/LoginEditTextStyles"
-                    android:background="@drawable/bg_login_inputs"/>
+                    style="@style/LoginEditTextStyles"/>
 
             <EditText
-                    android:hint="@string/prompt_password"
                     android:id="@+id/et_password"
-                    style="@style/LoginEditTextStyles"
-                    android:imeOptions="actionUnspecified"
+                    android:hint="@string/prompt_password"
                     android:inputType="textPassword"
-                    android:background="@drawable/bg_login_inputs"
-                    android:layout_width="match_parent"/>
+                    style="@style/LoginEditTextStyles"
+                    android:imeOptions="actionUnspecified"/>
 
             <include layout="@layout/button_primary"/>
 
