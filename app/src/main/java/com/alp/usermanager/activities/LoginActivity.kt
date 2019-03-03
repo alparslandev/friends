@@ -1,5 +1,6 @@
 package com.alp.usermanager.activities
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -51,6 +52,9 @@ class LoginActivity : AppCompatActivity() {
 
     fun showError(msg : String) { // TODO Move this to BaseActivity
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
     fun checkButtonAvailability() {
