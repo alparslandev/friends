@@ -16,7 +16,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), FriendsAdapter.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         rv_friends.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL,false)
-        rv_friends.adapter = FriendsAdapter(friends.toMutableList())
+        rv_friends.adapter = FriendsAdapter(friends.toMutableList(), this)
     }
 
     private fun getDummyFriends(): MutableList<User> {
@@ -59,6 +59,11 @@ class MainActivity : AppCompatActivity() {
             User(6, "quis.lectus@semper.edu", "Johns", "https://bursakuaforler.com/wp-content/uploads/2018/02/emma-stone-kizil-sac.jpg", "Isaiah"),
             User(7, "semper@pede.edu", "Tate", "", "Lorem ipsum")
         )
+    }
+
+
+    override fun onClick(user: User) {
+        TODO("to FriendDetail")
     }
 
     fun showError(msg: String) { // TODO Move this to BaseActivity

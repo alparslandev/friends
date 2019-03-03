@@ -9,7 +9,7 @@ import com.alp.usermanager.service.model.User
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_person.view.*
 
-class FriendsAdapter (val friends : MutableList<User>) : RecyclerView.Adapter<FriendsAdapter.FriendsViewHolder>() {
+class FriendsAdapter (val friends : MutableList<User>, val onClickListener : OnClickListener) : RecyclerView.Adapter<FriendsAdapter.FriendsViewHolder>() {
 
     override fun onBindViewHolder(holder: FriendsViewHolder, position: Int) {
         val friend = friends[position]
@@ -18,6 +18,10 @@ class FriendsAdapter (val friends : MutableList<User>) : RecyclerView.Adapter<Fr
             .load(friend.image_url)
             .placeholder(R.drawable.sample_photo)
             .into(holder.itemView.iv_avatar)
+
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(friend)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): FriendsViewHolder {
@@ -30,4 +34,8 @@ class FriendsAdapter (val friends : MutableList<User>) : RecyclerView.Adapter<Fr
     }
 
     class FriendsViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
+
+    interface OnClickListener {
+        fun onClick(user : User)
+    }
 }
