@@ -7,7 +7,7 @@
               android:gravity="center_horizontal"
               android:orientation="vertical"
               android:background="@color/ys_main_color"
-              tools:context="com.alp.usermanager.LoginActivity">
+              tools:context="com.alp.usermanager.activities.LoginActivity">
 
     <ProgressBar
             style="?android:attr/progressBarStyleLarge"
