@@ -41,6 +41,7 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:2.5.0"
 
     implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
 
     testİmplementation 'junit:junit:4.12'
     androidTestİmplementation 'com.android.support.test:runner:1.0.2'
