@@ -12,9 +12,9 @@ import android.widget.Toast
 import com.alp.usermanager.service.Api
 import com.alp.usermanager.service.IDataService
 import com.alp.usermanager.service.request.LoginRequest
+import com.alp.usermanager.utils.ValidationUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-
 
 class LoginActivity : AppCompatActivity() {
 
@@ -64,8 +64,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun getMailConditions(): Boolean {
-        val text = et_mail.text
-        return !TextUtils.isEmpty(text) && text.endsWith(".com")
+        return ValidationUtils.isValidEmail(et_mail.text.toString())
     }
 
     private fun getPasswordConditions(): Boolean {
