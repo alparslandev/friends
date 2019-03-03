@@ -6,11 +6,6 @@ import org.junit.Test
 
 class EmailUnitTest {
     @Test
-    fun addition_isCorrect() {
-        Assert.assertEquals(4, 2 + 2)
-    }
-
-    @Test
     fun emailValidator_CorrectEmailSimple_ReturnsTrue() {
         Assert.assertTrue(ValidationUtils.isValidEmail("name@email.com"))
     }
