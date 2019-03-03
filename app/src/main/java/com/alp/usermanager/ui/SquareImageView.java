@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import com.alp.usermanager.R;
+import com.alp.usermanager.utils.ValidationUtils;
 import com.bumptech.glide.Glide;
 
 public class SquareImageView extends AppCompatImageView {
@@ -24,6 +25,7 @@ public class SquareImageView extends AppCompatImageView {
     }
 
     public void loadUrl(String url) {
+        if (ValidationUtils.Companion.isValidUrl(url))
         Glide.with(getContext())
                 .load(url)
                 .placeholder(R.drawable.sample_photo)
