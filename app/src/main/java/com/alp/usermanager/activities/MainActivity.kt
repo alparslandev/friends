@@ -1,6 +1,7 @@
 package com.alp.usermanager.activities
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -51,19 +52,21 @@ class MainActivity : AppCompatActivity(), FriendsAdapter.OnClickListener {
 
     private fun getDummyFriends(): MutableList<User> {
         return mutableListOf(
-            User(1, "nonummy.ipsum@vulputate.edu", "Townsend", "https://m.media-amazon.com/images/M/MV5BMTQzMzg1ODAyNl5BMl5BanBnXkFtZTYwMjAxODQ1._V1_UX214_CR0,0,214,317_AL_.jpg", "Townsend"),
-            User(2, "non.sapien.molestie@sit.co.uk", "Cohen", "https://images.businessoffashion.com/profiles/asset/1577151615231141/selena-gomez-1577151796839511.png?auto=format%2Ccompress&crop=top&fit=crop&h=576&w=1024", "Connor"),
-            User(3, "feugiat@metusfacilisis.com", "Irwin", "https://isbh.tmgrup.com.tr/sbh/2018/01/17/keanu-reeves-kimdir-1516180917853.jpg", "Gabriel"),
-            User(4, "gravida@nonvestibulum.ca", "Irwin", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTqrfEVHsxa2YDemb16M6xJ5nJtj5o_5BCiLhEbp5BtBJNhYm9", "Salazar"),
-            User(5, "ivamus@malesuada.ca", "Coffey", "https://isbh.tmgrup.com.tr/sbh/2018/01/18/brad-pitt-kimdir-1516264639053.jpg", "Leo"),
-            User(6, "quis.lectus@semper.edu", "Johns", "https://bursakuaforler.com/wp-content/uploads/2018/02/emma-stone-kizil-sac.jpg", "Isaiah"),
-            User(7, "semper@pede.edu", "Tate", "", "Lorem ipsum")
+            User(1, "nonummy.ipsum@vulputate.edu", "Townsend", "https://m.media-amazon.com/images/M/MV5BMTQzMzg1ODAyNl5BMl5BanBnXkFtZTYwMjAxODQ1._V1_UX214_CR0,0,214,317_AL_.jpg", "Townsend", "03.12.1992", "New York", "905373473201"),
+            User(2, "non.sapien.molestie@sit.co.uk", "Cohen", "https://images.businessoffashion.com/profiles/asset/1577151615231141/selena-gomez-1577151796839511.png?auto=format%2Ccompress&crop=top&fit=crop&h=576&w=1024", "Connor", "03.12.1992", "New York", "905373473201"),
+            User(3, "feugiat@metusfacilisis.com", "Irwin", "https://isbh.tmgrup.com.tr/sbh/2018/01/17/keanu-reeves-kimdir-1516180917853.jpg", "Gabriel", "03.12.1992", "New York", "905373473201"),
+            User(4, "gravida@nonvestibulum.ca", "Irwin", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTqrfEVHsxa2YDemb16M6xJ5nJtj5o_5BCiLhEbp5BtBJNhYm9", "Salazar", "03.12.1992", "New York", "905373473201"),
+            User(5, "ivamus@malesuada.ca", "Coffey", "https://isbh.tmgrup.com.tr/sbh/2018/01/18/brad-pitt-kimdir-1516264639053.jpg", "Leo", "03.12.1992", "New York", "905373473201"),
+            User(6, "quis.lectus@semper.edu", "Johns", "https://bursakuaforler.com/wp-content/uploads/2018/02/emma-stone-kizil-sac.jpg", "Isaiah", "03.12.1992", "New York", "905373473201"),
+            User(7, "semper@pede.edu", "Tate", "", "Lorem ipsum", "03.12.1992", "New York", "905373473201")
         )
     }
 
 
     override fun onClick(user: User) {
-        TODO("to FriendDetail")
+        val intent = Intent(this, FriendDetailsActivity::class.java)
+        intent.putExtra(FriendDetailsActivity.EXTRA_FRIEND, user)
+        startActivity(intent)
     }
 
     fun showError(msg: String) { // TODO Move this to BaseActivity

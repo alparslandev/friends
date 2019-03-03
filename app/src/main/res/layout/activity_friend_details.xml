@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.FriendDetailsActivity">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <com.alp.usermanager.ui.SquareImageView
+                android:id="@+id/siv_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        <TextView
+                android:id="@+id/tv_name_surname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Alparslan develioğlu"
+                android:textSize="24sp"
+                android:padding="10dp"/>
+
+        <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="alp.develioglu@gmail.com"
+                android:textSize="16sp"
+                android:padding="10dp"/>
+
+        <TextView
+                android:id="@+id/tv_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="03.12.1992"
+                android:textSize="16sp"
+                android:padding="10dp"/>
+
+        <EditText
+                android:id="@+id/et_phone"
+                android:hint="@string/prompt_phone"
+                android:inputType="phone"
+                android:gravity="start"
+                style="@style/LoginEditTextStyles"/>
+
+        <EditText
+                android:id="@+id/et_address"
+                android:hint="@string/prompt_address"
+                android:inputType="text"
+                android:gravity="start"
+                android:lines="3"
+                style="@style/LoginEditTextStyles"/>
+
+    </LinearLayout>
+</ScrollView>
