@@ -16,4 +16,7 @@ interface IDataService {
     @GET("friends")
     fun getFriends() : Observable<List<User>>
 
+    @GET("user/details")
+    fun getUser(id: Int): Observable<User>
+
 }
