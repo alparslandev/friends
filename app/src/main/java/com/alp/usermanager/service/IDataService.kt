@@ -6,6 +6,7 @@ import io.reactivex.Observable
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 
 interface IDataService {
@@ -17,6 +18,6 @@ interface IDataService {
     fun getFriends() : Observable<List<User>>
 
     @GET("user/details")
-    fun getUser(id: Int): Observable<User>
+    fun getUser(@Query("id") id: Int): Observable<User>
 
 }

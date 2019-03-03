@@ -4,15 +4,20 @@ import android.annotation.SuppressLint
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.view.Menu
+import android.view.MenuItem
 import com.alp.usermanager.R
 import com.alp.usermanager.service.Api
 import com.alp.usermanager.service.IDataService
 import com.alp.usermanager.service.model.User
+import com.alp.usermanager.wrappers.TextWatcherWrapper
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_friend_details.*
 
 class FriendDetailsActivity : AppCompatActivity() {
+
+    var user : User? = null
 
     companion object {
         val EXTRA_FRIEND = "EXTRA_FRIEND"
@@ -23,12 +28,43 @@ class FriendDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_friend_details)
 
         var bundle : Bundle? = intent.extras
-        var user = bundle!!.getSerializable(EXTRA_FRIEND) as User
+        user = bundle!!.getSerializable(EXTRA_FRIEND) as User
 
-        getUserDetails(user)
+        getUserDetails(user!!)
 
-        initialize(user) // Todo remove this.
+        initialize(user!!) // Todo remove this.
 
+        et_address.addTextChangedListener(object : TextWatcherWrapper() {
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                invalidateOptionsMenu()
+            }
+        })
+
+        et_phone.addTextChangedListener(object : TextWatcherWrapper() {
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                invalidateOptionsMenu()
+            }
+        })
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        val phone = et_phone.text
+        val address = et_address.text
+        menu.findItem(R.id.action_save).isEnabled = phone.length == 12 && phone.toString() != user?.phone && !address.isEmpty()
+        return true
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu to use in the action bar
+        val inflater = menuInflater
+        inflater.inflate(R.menu.save, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle presses on the action bar menu items
+
+        return super.onOptionsItemSelected(item)
     }
 
     @SuppressLint("CheckResult")
